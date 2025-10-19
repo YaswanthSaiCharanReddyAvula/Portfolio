@@ -2,10 +2,34 @@
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-};
+if (menuIcon && navbar) {
+    const toggleMenu = () => {
+        menuIcon.classList.toggle('bx-x');
+        navbar.classList.toggle('active');
+    };
+    menuIcon.addEventListener('click', toggleMenu);
+    menuIcon.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleMenu();
+        }
+    });
+    // Close nav when clicking a link
+    navbar.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (link) {
+            menuIcon.classList.remove('bx-x');
+            navbar.classList.remove('active');
+        }
+    });
+    // Close when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target) && !menuIcon.contains(e.target)) {
+            menuIcon.classList.remove('bx-x');
+            navbar.classList.remove('active');
+        }
+    });
+}
 
 /*==================== scroll sections active link ====================*/
 let sections = document.querySelectorAll('section');
@@ -31,8 +55,10 @@ window.onscroll = () => {
     header.classList.toggle('sticky', window.scrollY > 100);
 
     /*==================== remove toggle icon and navbar when click navbar link (scroll) ====================*/
-    menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active');
+    if (menuIcon && navbar) {
+        menuIcon.classList.remove('bx-x');
+        navbar.classList.remove('active');
+    }
 };
 
 /*==================== scroll reveal ====================*/

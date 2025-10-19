@@ -38,14 +38,7 @@
     <header class="header">
       <a href="#home" class="logo" title="Go to home">Yaswanth</a>
 
-      <div class="header-actions">
-          <i class='bx bx-menu' id="menu-icon" aria-label="Open navigation" title="Menu"></i>
-        </div>
-        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme" style="position: absolute; top: 1.5rem; right: 1.5rem; z-index: 1000;">
-          <i class='bx bx-moon'></i>
-        </button>
-
-      <nav class="navbar">
+      <nav class="navbar" aria-label="Primary">
         <a href="#home" class="active">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -56,6 +49,13 @@
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <div class="header-actions" role="group" aria-label="Header controls">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
+          <i class='bx bx-moon' aria-hidden="true"></i>
+        </button>
+        <i class='bx bx-menu' id="menu-icon" aria-label="Open navigation" title="Menu" role="button" tabindex="0"></i>
+      </div>
     </header>
 
     <!-- home section design -->
