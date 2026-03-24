@@ -441,17 +441,18 @@ span{
     box-shadow: 0 6px 20px rgba(228, 64, 95, 0.2);
 }
 .timeline-item h3{
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 0.5rem;
 }
 .timeline-item p{
     color: var(--text-secondary);
-    font-size: 3.5rem;
+    font-size: 2rem;
 }
 .timeline-item ul{
     list-style: disc;
     margin-left: 2rem;
     margin-top: 1rem;
+    font-size: 1.5rem;
 }
 .cert-list{ 
     list-style:none; 
